@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Honglei Jin - Homepage</title>
-  <meta name="description" content="Honglei Jin personal homepage: AI, Embodied AI, Computer Vision, projects, awards, and contact information.">
+  <meta name="description" content="Honglei Jin personal homepage: AI, Embodied AI, Computer Vision, projects, publications, and awards.">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon-rounded.svg?v=4">
   <link rel="icon" type="image/jpeg" href="assets/images/profile.jpg?v=4">
   <link rel="shortcut icon" type="image/jpeg" href="assets/images/profile.jpg?v=4">
@@ -48,12 +48,21 @@
             </span>
             <a href="https://github.com/honglei-lab" target="_blank" rel="noreferrer" aria-label="GitHub profile">GitHub</a>
           </p>
+          <p class="profile-meta-item">
+            <span class="meta-icon meta-icon-scholar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false">
+                <path d="M12 3l10 4.5-10 4.5L2 7.5 12 3z"/>
+                <path d="M6 10.3V14c0 2 3 3.5 6 3.5s6-1.5 6-3.5v-3.7l-6 2.7-6-2.7z"/>
+                <rect x="19.4" y="8" width="1.2" height="6"/>
+                <circle cx="20" cy="15.8" r="1.2"/>
+              </svg>
+            </span>
+            <span>Google Scholar</span>
+          </p>
         </div>
-        <div class="sidebar-links">
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#awards">Awards</a>
-          <a href="#contact">Contact</a>
+        <div class="sidebar-note">
+          <p class="sidebar-note-title">Current Focus</p>
+          <p class="sidebar-note-text">Text-to-Motion, VLA, and tracking for embodied intelligence.</p>
         </div>
       </aside>
 
@@ -69,7 +78,6 @@
             <a href="#projects">Projects</a>
             <a href="#publications">Publications</a>
             <a href="#awards">Awards</a>
-            <a href="#contact">Contact</a>
           </div>
         </nav>
 
@@ -89,10 +97,6 @@
             <span class="chip">Artificial Intelligence</span>
             <span class="chip">Embodied AI</span>
             <span class="chip">Computer Vision</span>
-          </div>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">View Projects</a>
-            <a class="btn btn-outline" href="mailto:velix.lab@gmail.com">Contact</a>
           </div>
         </section>
 
@@ -120,15 +124,16 @@
           </article>
         </section>
 
-        <section class="grid-two" id="projects">
-          <article class="card reveal delay-3">
-            <h3>Featured Project 01</h3>
+        <section class="card reveal delay-3" id="projects">
+          <h3>Featured Projects</h3>
+          <article class="project-item">
+            <h4 class="project-title">Project 01</h4>
             <p class="muted">Replace this with your strongest project summary and measurable outcome.</p>
             <p class="muted"><strong>Tech:</strong> PyTorch / ROS / Isaac Sim</p>
             <p><a href="#">Demo</a> · <a href="#">Code</a> · <a href="#">Paper</a></p>
           </article>
-          <article class="card reveal delay-3">
-            <h3>Featured Project 02</h3>
+          <article class="project-item">
+            <h4 class="project-title">Project 02</h4>
             <p class="muted">Add your technical contribution, setup details, and key performance result.</p>
             <p class="muted"><strong>Tech:</strong> OpenCV / C++ / CUDA</p>
             <p><a href="#">Demo</a> · <a href="#">Code</a> · <a href="#">Poster</a></p>
@@ -137,7 +142,7 @@
 
         <section class="grid-two">
           <article class="card reveal delay-4" id="publications">
-            <h3>Selected Publications</h3>
+            <h3>Publications (Selected)</h3>
             <ol class="list">
               <li>
                 <strong>Paper Title Placeholder</strong><br>
@@ -153,15 +158,15 @@
           </article>
 
           <article class="card reveal delay-4" id="awards">
-            <h3>Awards</h3>
+            <h3>Honors and Awards</h3>
             <ul class="timeline">
-              <li>
-                <p class="line-title">First Prize, National Undergraduate Electronic Design Contest</p>
-                <p class="line-sub">2025.08</p>
-              </li>
               <li>
                 <p class="line-title">National Scholarship</p>
                 <p class="line-sub">2024.12</p>
+              </li>
+              <li>
+                <p class="line-title">First Prize, National Undergraduate Electronic Design Contest</p>
+                <p class="line-sub">2025.08</p>
               </li>
               <li>
                 <p class="line-title">National Scholarship</p>
@@ -169,15 +174,6 @@
               </li>
             </ul>
           </article>
-        </section>
-
-        <section class="card reveal delay-4" id="contact">
-          <h3>Contact</h3>
-          <p class="muted">
-            Email: <a href="mailto:velix.lab@gmail.com">velix.lab@gmail.com</a><br>
-            GitHub: <a href="https://github.com/honglei-lab" target="_blank" rel="noreferrer">github.com/honglei-lab</a><br>
-            Google Scholar: <a href="#">Scholar Link</a> · CV: <a href="#">CV PDF</a>
-          </p>
         </section>
 
         <p class="footer">© <span id="year"></span> Honglei Jin · Last updated: <span id="updated"></span></p>
