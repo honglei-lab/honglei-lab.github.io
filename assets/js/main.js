@@ -1,6 +1,14 @@
 const now = new Date();
-document.getElementById("year").textContent = String(now.getFullYear());
-document.getElementById("updated").textContent = now.toLocaleString("en-US", { hour12: false });
+const yearEl = document.getElementById("year");
+const updatedEl = document.getElementById("updated");
+
+if (yearEl) {
+  yearEl.textContent = String(now.getFullYear());
+}
+
+if (updatedEl) {
+  updatedEl.textContent = now.toLocaleString("en-US", { hour12: false });
+}
 
 const navLinks = Array.from(document.querySelectorAll('.top-nav-links a[href^="#"]'));
 const sections = navLinks
