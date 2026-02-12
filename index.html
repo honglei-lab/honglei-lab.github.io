@@ -1,55 +1,447 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Honglei | Personal Website</title>
+  <meta name="description" content="Honglei 的个人主页：研究方向、项目、论文、经历与联系方式。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --bg-2: #efe6d6;
+      --ink: #18222d;
+      --muted: #5d6b73;
+      --card: rgba(255, 255, 255, 0.78);
+      --line: #d6d0c2;
+      --accent: #0f7964;
+      --accent-2: #d8692f;
+      --radius: 18px;
+      --shadow: 0 14px 36px rgba(24, 34, 45, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(15, 121, 100, 0.13) 0, rgba(15, 121, 100, 0) 42%),
+        radial-gradient(circle at 90% 8%, rgba(216, 105, 47, 0.13) 0, rgba(216, 105, 47, 0) 37%),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(24, 34, 45, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 34, 45, 0.03) 1px, transparent 1px);
+      background-size: 26px 26px;
+      pointer-events: none;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: 26px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.66);
+      backdrop-filter: blur(7px);
+      position: sticky;
+      top: 14px;
+      z-index: 5;
+    }
+
+    .brand {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      margin-top: 28px;
+      padding: 48px 34px;
+      border-radius: calc(var(--radius) + 10px);
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.89), rgba(255, 255, 255, 0.72));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -120px;
+      top: -130px;
+      background: radial-gradient(circle, rgba(15, 121, 100, 0.18), rgba(15, 121, 100, 0));
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3.1rem);
+      line-height: 1.14;
+      letter-spacing: 0.01em;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .hero-tags {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    .hero-links {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(15, 121, 100, 0.24);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .list li {
+      margin: 10px 0;
+    }
+
+    .timeline {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline li {
+      margin: 0;
+      padding: 13px 0;
+      border-top: 1px dashed var(--line);
+    }
+
+    .timeline li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .line-title {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .line-sub {
+      margin: 2px 0 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: reveal 0.55s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.06s; }
+    .delay-2 { animation-delay: 0.12s; }
+    .delay-3 { animation-delay: 0.2s; }
+    .delay-4 { animation-delay: 0.28s; }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .grid, .two-col {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 34px 22px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(1100px, calc(100% - 24px));
+      }
+      .topbar {
+        border-radius: 18px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .nav {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .btn {
+        transition: none;
+      }
+      .reveal {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="zh-CN"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Honglei | Portfolio&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body { max-width: 860px; margin: 80px auto; padding: 0 18px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1 { font-size: 40px; margin: 0 0 8px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.sub { color: #555; margin: 0 0 24px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card { border: 1px solid #eee; border-radius: 14px; padding: 18px; margin: 14px 0; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>a { color: inherit; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.tag { display: inline-block; padding: 4px 10px; border: 1px solid #eee; border-radius: 999px; margin-right: 8px; font-size: 12px; color: #555; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer { margin-top: 36px; color: #777; font-size: 13px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Hi, 我是 Honglei&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;p class="sub"&gt;具身智能 / 机器人 / 计算机视觉 · 个人主页测试页&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;span class="tag"&gt;Status&lt;/span&gt; ✅ GitHub Pages 测试成功（如果你能看到这个页面）&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;span class="tag"&gt;Next&lt;/span&gt; 把这里换成你的项目、论文、比赛经历&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 style="margin:0 0 8px;"&gt;Links&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul style="margin:0; padding-left:18px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="https://github.com/" target="_blank" rel="noreferrer"&gt;GitHub&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="mailto:your_email@example.com"&gt;Email（把我改成你的邮箱）&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;p class="footer"&gt;Last updated: &lt;span id="t"&gt;&lt;/span&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("t").textContent = new Date().toLocaleString();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="container">
+    <header class="topbar">
+      <p class="brand">Honglei Lab</p>
+      <nav class="nav" aria-label="主导航">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero reveal">
+      <h1>Hi, 我是 Honglei<br>Embodied AI / Robotics / Computer Vision</h1>
+      <p>
+        这是你在 GitHub Pages 上的个人主页基础框架。当前内容是可替换占位文本，
+        建议按模块逐步替换成真实项目、论文链接和经历信息。
+      </p>
+      <div class="hero-tags">
+        <span class="chip">Embodied Intelligence</span>
+        <span class="chip">Robot Learning</span>
+        <span class="chip">3D Perception</span>
+      </div>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="#projects">查看项目</a>
+        <a class="btn btn-outline" href="mailto:your_email@example.com">联系我</a>
+      </div>
+    </section>
+
+    <main class="grid">
+      <section class="card reveal delay-1" id="about">
+        <h2 class="section-title">About</h2>
+        <p class="muted">
+          这里写你的 4-6 句简介：当前身份（如硕士/博士/工程师）、研究兴趣、
+          代表成果和你正在寻找的机会（PhD/Research Intern/Full-time）。
+        </p>
+        <ul class="list">
+          <li>姓名：Honglei（可加中文名）</li>
+          <li>单位：Your University / Lab</li>
+          <li>方向：具身智能、机器人操作、视觉感知</li>
+          <li>地点：City, Country</li>
+        </ul>
+      </section>
+
+      <section class="card reveal delay-2" id="research">
+        <h2 class="section-title">Research Focus</h2>
+        <ul class="list">
+          <li><strong>Task &amp; Motion Learning</strong>：端到端策略学习与可泛化机器人操作。</li>
+          <li><strong>Perception for Robotics</strong>：多模态视觉、3D 表征与时空理解。</li>
+          <li><strong>Real2Sim2Real</strong>：仿真到现实迁移与数据效率优化。</li>
+        </ul>
+      </section>
+    </main>
+
+    <section class="two-col" id="projects">
+      <article class="card reveal delay-2">
+        <h2 class="section-title">Featured Project 01</h2>
+        <p class="muted">一句话描述项目目标与价值。建议补充 Demo、代码、论文链接。</p>
+        <p class="muted"><strong>Tech:</strong> PyTorch / ROS / Isaac Sim</p>
+        <p><a href="#">[Demo]</a> · <a href="#">[Code]</a> · <a href="#">[Paper]</a></p>
+      </article>
+      <article class="card reveal delay-3">
+        <h2 class="section-title">Featured Project 02</h2>
+        <p class="muted">一句话描述你的核心贡献（如算法、系统搭建、实验设计）。</p>
+        <p class="muted"><strong>Tech:</strong> OpenCV / C++ / CUDA</p>
+        <p><a href="#">[Demo]</a> · <a href="#">[Code]</a> · <a href="#">[Poster]</a></p>
+      </article>
+    </section>
+
+    <section class="two-col">
+      <section class="card reveal delay-3" id="publications">
+        <h2 class="section-title">Selected Publications</h2>
+        <ol class="list">
+          <li>
+            <strong>Paper Title Placeholder</strong><br>
+            <span class="muted">Honglei, Coauthor A, Coauthor B · Conference/Journal 2026</span><br>
+            <a href="#">[PDF]</a> · <a href="#">[Project Page]</a> · <a href="#">[Code]</a>
+          </li>
+          <li>
+            <strong>Another Paper Title Placeholder</strong><br>
+            <span class="muted">Honglei, Coauthor A · Conference/Journal 2025</span><br>
+            <a href="#">[PDF]</a> · <a href="#">[Slides]</a>
+          </li>
+        </ol>
+      </section>
+
+      <section class="card reveal delay-4" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <ul class="timeline">
+          <li>
+            <p class="line-title">Research Intern · Lab/Company Name</p>
+            <p class="line-sub">2025.06 - 2025.12 · 项目方向：机器人抓取策略学习</p>
+          </li>
+          <li>
+            <p class="line-title">M.S. in XXX · University Name</p>
+            <p class="line-sub">2024.09 - Present · GPA / 导师 / 研究课题</p>
+          </li>
+          <li>
+            <p class="line-title">B.E. in XXX · University Name</p>
+            <p class="line-sub">2020.09 - 2024.06 · 荣誉/竞赛成果</p>
+          </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="card reveal delay-4" id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="muted">
+        Email: <a href="mailto:your_email@example.com">your_email@example.com</a><br>
+        GitHub: <a href="https://github.com/your_username" target="_blank" rel="noreferrer">github.com/your_username</a><br>
+        Google Scholar: <a href="#">Scholar Link</a> · CV: <a href="#">[CV PDF]</a>
+      </p>
+    </section>
+
+    <p class="footer">
+      © <span id="year"></span> Honglei · Last updated: <span id="updated"></span>
+    </p>
+  </div>
+
+  <script>
+    const now = new Date();
+    document.getElementById("year").textContent = String(now.getFullYear());
+    document.getElementById("updated").textContent = now.toLocaleString("zh-CN", { hour12: false });
+  </script>
 </body>
 </html>
