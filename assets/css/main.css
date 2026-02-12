@@ -133,8 +133,8 @@ body::before {
 }
 
 .profile-photo {
-  width: 148px;
-  height: 148px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
@@ -192,7 +192,7 @@ body::before {
 .meta-icon svg {
   width: 20px;
   height: 20px;
-  fill: #202833;
+  fill: #111111;
 }
 
 .profile-meta-item a {
@@ -480,8 +480,8 @@ a {
   }
 
   .profile-photo {
-    width: 130px;
-    height: 130px;
+    width: 124px;
+    height: 124px;
   }
 
   .headline {
