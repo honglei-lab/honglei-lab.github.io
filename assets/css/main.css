@@ -497,6 +497,81 @@ h3::before {
   margin: 10px 0;
 }
 
+.pub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pub-entry {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-top: 1px dashed var(--line);
+}
+
+.pub-entry:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.pub-thumb {
+  flex-shrink: 0;
+  width: 360px;
+  height: 203px;
+  overflow: hidden;
+  background: var(--bg-accent);
+  box-shadow: 0 4px 16px rgba(31, 38, 51, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pub-thumb:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(31, 38, 51, 0.18);
+}
+
+.pub-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.pub-thumb a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pub-thumb-empty {
+  background: var(--line);
+  opacity: 0.4;
+}
+
+.pub-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.pub-title {
+  margin: 2px 0 8px;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.06rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.pub-authors {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.pub-links {
+  margin: 0;
+}
+
 .timeline {
   margin: 0;
   padding: 0;
@@ -620,11 +695,30 @@ a {
   .headline {
     font-size: clamp(1.55rem, 8vw, 2.3rem);
   }
+
+  .pub-entry {
+    flex-direction: column;
+  }
+
+  .pub-thumb {
+    width: 100%;
+    height: auto;
+    max-width: 360px;
+  }
+
+  .pub-thumb img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .pub-thumb:hover {
+    transform: none;
   }
 
   .reveal {
