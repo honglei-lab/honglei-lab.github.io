@@ -518,8 +518,8 @@ h3::before {
 
 .pub-thumb {
   flex-shrink: 0;
-  width: 360px;
-  height: 203px;
+  width: 320px;
+  height: 180px;
   overflow: hidden;
   background: var(--bg-accent);
   box-shadow: 0 4px 16px rgba(31, 38, 51, 0.12);
