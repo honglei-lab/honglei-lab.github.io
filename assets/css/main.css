@@ -574,30 +574,55 @@ h3::before {
 
 .timeline {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 6px;
   list-style: none;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(47, 111, 228, 0.72), rgba(111, 160, 255, 0.24));
 }
 
 .timeline li {
+  position: relative;
   margin: 0;
-  padding: 12px 0;
-  border-top: 1px dashed var(--line);
+  padding: 0 0 18px 22px;
 }
 
-.timeline li:first-child {
-  border-top: 0;
-  padding-top: 0;
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #4b84eb, #7ea9ff);
+  box-shadow: 0 0 0 3px rgba(47, 111, 228, 0.1);
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
 }
 
 .line-title {
-  margin: 0;
-  font-weight: 700;
+  margin: 4px 0 0;
+  font-weight: 600;
+  line-height: 1.38;
 }
 
 .line-sub {
-  margin: 3px 0 0;
-  color: var(--muted);
-  font-size: 0.93rem;
+  margin: 0;
+  color: #4d7fe0;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .footer {
